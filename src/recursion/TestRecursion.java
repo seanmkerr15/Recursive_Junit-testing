@@ -24,6 +24,6 @@ class TestRecursion {
 	}
 	
 	void test5() {
-		assertEquals(RecursionProblems.countEight(8818881888188818881888), 23);
+		assertEquals(RecursionProblems.countEight(88188818881888), );
 	}
 }
