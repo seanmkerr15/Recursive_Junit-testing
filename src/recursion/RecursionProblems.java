@@ -22,9 +22,40 @@ public class RecursionProblems {
 			}
 		}
 		return countEight(number);
-		
-		
 	}
+		public static int countCat(String str, String sub) {
+			//base case
+			if(sub == null)
+				return 0;
+			if(sub.length() == 0) {
+				return 0;
+			}
+			if(str.length() < sub.length())
+				return 0;
+			
+			String substr = str.substring(0, sub.length());
+			if(substr.equals(sub)) {
+				return 1 + countCat(str.substring(sub.length()), sub);
+			}
+			//did not find the sub word
+			//take out first letter in str
+			return countCat(str.substring(1), sub);
+				
+		}
+		public static String noRepeat(String str) {
+	if(str == null)
+	return str;
+	
+	
+	if(str.length() <= 1)
+		return str;
+	
+	if(str.charAt(0) == str.charAt(1))
+		//the first 2 letters are the same so call again minus that.
+		return noRepeat(str.substring(1));
+	//the first 2 letters are different.
+	return str.charAt(0) + noRepeat(str.substring(1));
+}
 /*	public static int countHi(String word) {
 		if (word.length() == 0) {
 			return 0;
@@ -37,6 +68,7 @@ public class RecursionProblems {
 	
 public static void main (String[] args) {
     System.out.println(countEight(287789788));
+    countCat("catcowcatcow", "cat");
  }
 }
 
